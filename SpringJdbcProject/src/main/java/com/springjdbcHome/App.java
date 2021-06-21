@@ -20,13 +20,21 @@ public class App {
 		
 		StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
 		
-		Student st=new Student();
-		st.setId(765);
-		st.setName("Rohan");
-		st.setCity("Kolkata");
+		/*
+		 * Student st=new Student(); st.setId(765); st.setName("Rohan");
+		 * st.setCity("Kolkata");
+		 * 
+		 * int result = studentDao.insert(st);
+		 * System.out.println("student added---"+result);
+		 */
 		
-		int result = studentDao.insert(st);
-		System.out.println("student added---"+result);
+		Student st= new Student();
+		st.setCity("Patna");
+		st.setId(213);
+		st.setName("Umesh Kumar");
+		
+		int r=studentDao.change(st);
+		System.out.println(r);
 
 
 	}
