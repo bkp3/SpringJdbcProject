@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.springjdbcDao.StudentDao;
 import com.springjdbcEntites.Student;
+import java.util.*;
 
 /**
  * Hello world!
@@ -45,8 +46,14 @@ public class App {
 		 */
 		
 		//fetching single student data
-		Student student = studentDao.getStudent(213);
-		System.out.println(student);
-
+		/*
+		 * Student student = studentDao.getStudent(213); System.out.println(student);
+		 */
+		
+		// fetching multiple student data
+		List<Student>st=studentDao.getAllStudents();
+		for(Student x:st) {
+			System.out.println(x);
+		}
 	}
 }
