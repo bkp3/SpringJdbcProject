@@ -1,6 +1,7 @@
 package com.springjdbcHome;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -17,11 +18,14 @@ public class App {
 		System.out.println("Program Started..............");
 
 		// Spring JDBC =>> JdbcTemplate
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/springjdbcHome/config.xml");
-		
-		StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
-		
-		
+		// ApplicationContext context = new
+		// ClassPathXmlApplicationContext("com/springjdbcHome/config.xml");
+
+		// using annotation
+		ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
+
+		StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
+
 		// insert operation
 		/*
 		 * 
@@ -31,7 +35,7 @@ public class App {
 		 * int result = studentDao.insert(st);
 		 * System.out.println("student added---"+result);
 		 */
-		
+
 		// update operation
 		/*
 		 * Student st= new Student(); st.setCity("Patna"); st.setId(213);
@@ -39,20 +43,20 @@ public class App {
 		 * 
 		 * int r=studentDao.change(st); System.out.println("data updated -->"+r);
 		 */
-		
-		//delete operation
+
+		// delete operation
 		/*
 		 * int r=studentDao.delete(445); System.out.println("data deleted-->"+r);
 		 */
-		
-		//fetching single student data
+
+		// fetching single student data
 		/*
 		 * Student student = studentDao.getStudent(213); System.out.println(student);
 		 */
-		
+
 		// fetching multiple student data
-		List<Student>st=studentDao.getAllStudents();
-		for(Student x:st) {
+		List<Student> st = studentDao.getAllStudents();
+		for (Student x : st) {
 			System.out.println(x);
 		}
 	}
