@@ -40,9 +40,13 @@ public class App {
 		 */
 		
 		//delete operation
-		int r=studentDao.delete(445);
-		System.out.println("data deleted-->"+r);
-
+		/*
+		 * int r=studentDao.delete(445); System.out.println("data deleted-->"+r);
+		 */
+		
+		//fetching single student data
+		Student student = studentDao.getStudent(213);
+		System.out.println(student);
 
 	}
 }
